@@ -13,5 +13,14 @@ namespace Tdd.Exercise1a.Tests
 
             Assert.That(actual, Is.Empty);
         }
+
+        [TestCase((uint)5, new[] { 2, 3, 5 })]
+        [TestCase((uint)10, new[] { 2, 3, 5, 7 })]
+        public void ReturnPrimeNumbersUntilMaxBound(uint maxBound, int[] expected)
+        {
+            var actual = PrimeNumbersGenerator.Generate(maxBound);
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
