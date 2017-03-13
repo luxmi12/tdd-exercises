@@ -8,7 +8,12 @@ namespace Tdd.Exercise1a
     {
         public IEnumerable<int> Generate(int limit)
         {
-            return Enumerable.Empty<int>();
+            if (limit <= 1)
+            {
+                return Enumerable.Empty<int>();
+            }
+
+            return Enumerable.Range(2, limit - 1);
         }
     }
 }

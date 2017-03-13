@@ -15,5 +15,15 @@ namespace Tdd.Exercise1a.Tests
 
             Assert.Empty(generator.Generate(limit));
         }
+
+        [Theory]
+        [InlineData(2, new[] {2})]
+        [InlineData(3, new[] {2, 3})]
+        public void GenerateListUpUntilLimit(int limit, int[] expected)
+        {
+            var generator = new PrimeNumbersGenerator();
+
+            Assert.Equal(expected, generator.Generate(limit));
+        }
     }
 }
