@@ -13,8 +13,9 @@ namespace Tdd.Exercise1a
                 return Enumerable.Empty<int>();
             }
 
+            var divisors = new[] {2, 3, 5};
             return Enumerable.Range(2, limit - 1).Where(number =>
-                number == 2 || number == 3 || number % 2 != 0 && number % 3 != 0);
+                divisors.Contains(number) || divisors.All(d => number % d != 0));
         }
     }
 }

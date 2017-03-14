@@ -20,6 +20,7 @@ namespace Tdd.Exercise1a.Tests
         [InlineData(2, new[] {2})]
         [InlineData(3, new[] {2, 3})]
         [InlineData(10, new[] {2, 3, 5, 7})]
+        [InlineData(30, new[] {2, 3, 5, 7, 11, 13, 17, 19, 23, 29})]
         public void GenerateListUpUntilLimit(int limit, int[] expected)
         {
             var generator = new PrimeNumbersGenerator();
