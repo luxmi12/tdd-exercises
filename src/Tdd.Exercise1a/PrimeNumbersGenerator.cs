@@ -13,9 +13,19 @@ namespace Tdd.Exercise1a
                 return Enumerable.Empty<int>();
             }
 
-            var divisors = new[] {2, 3, 5};
-            return Enumerable.Range(2, limit - 1).Where(number =>
-                divisors.Contains(number) || divisors.All(d => number % d != 0));
+            var primes = new List<int> {2};
+
+            foreach (var number in Enumerable.Range(3, limit - 2))
+            {
+                var divisors = primes.TakeWhile(p => p * p < limit);
+
+                if (divisors.Contains(number) || divisors.All(d => number % d != 0))
+                {
+                    primes.Add(number);
+                }
+            }
+
+            return primes;
         }
     }
 }
