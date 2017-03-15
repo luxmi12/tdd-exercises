@@ -19,7 +19,7 @@ namespace Tdd.Exercise1a
             {
                 var divisors = primes.TakeWhile(p => p * p < limit);
 
-                if (divisors.Contains(number) || divisors.All(d => number % d != 0))
+                if (divisors.All(d => number % d != 0))
                 {
                     primes.Add(number);
                 }
