@@ -13,9 +13,9 @@ namespace Tdd.Exercise1a
                 return Enumerable.Empty<int>();
             }
 
-            var primes = new List<int> {2};
+            var primes = new List<int>();
 
-            foreach (var number in Enumerable.Range(3, limit - 2))
+            foreach (var number in Enumerable.Range(1, limit).Skip(1))
             {
                 var divisors = primes.TakeWhile(p => p * p < limit);
 
