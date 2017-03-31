@@ -17,7 +17,7 @@ namespace Tdd.Exercise1a
 
             foreach (var number in Enumerable.Range(1, limit).Skip(1))
             {
-                var divisors = primes.TakeWhile(p => p * p < limit);
+                var divisors = primes.TakeWhile(p => p * p <= limit);
 
                 if (divisors.All(d => number % d != 0))
                 {
