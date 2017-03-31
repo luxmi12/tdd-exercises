@@ -1,6 +1,4 @@
-using System;
 using Xunit;
-using Tdd.Exercise1a;
 
 namespace Tdd.Exercise1a.Tests
 {
