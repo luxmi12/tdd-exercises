@@ -7,16 +7,23 @@ namespace Tdd.Exercise5
 {
     public class Movie
     {
-        private IList<int> _ratings = new List<int>();
+        private IList<Rating> _ratings = new List<Rating>();
 
-        public void LeaveReview(int rating)
+        public void LeaveReview(Rating rating)
         {
             _ratings.Add(rating);
         }
 
-        public int AverageRating => (int) Math.Round(_ratings.Average());
+        public Rating AverageRating
+        {
+            get
+            {
+                var average = _ratings.Select(r => Convert.ToInt32(r)).Average();
+                return (Rating)(int) Math.Round(average);
+            }
+        }
 
-        public int NumberOfReviewsFor(int rating)
+        public int NumberOfReviewsFor(Rating rating)
         {
             return _ratings.Count(r => r == rating);
         }
