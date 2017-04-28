@@ -15,5 +15,10 @@ namespace Tdd.Exercise5
         }
 
         public int AverageRating => (int) Math.Round(_ratings.Average());
+
+        public int NumberOfReviewsFor(int rating)
+        {
+            return _ratings.Count(r => r == rating);
+        }
     }
 }

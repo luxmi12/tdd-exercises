@@ -41,5 +41,17 @@ namespace Tdd.Exercise5.Tests
 
             _movie.AverageRating.ShouldBe(5);
         }
+
+        [Theory]
+        [InlineData(5, 2)]
+        [InlineData(4, 1)]
+        public void ReportNumberOfReviewsForEachRating(int rating, int numberOfReviews)
+        {
+            _movie.LeaveReview(5);
+            _movie.LeaveReview(5);
+            _movie.LeaveReview(4);
+
+            _movie.NumberOfReviewsFor(rating).ShouldBe(numberOfReviews);
+        }
     }
 }
