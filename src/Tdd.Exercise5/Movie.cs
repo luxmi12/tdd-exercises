@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace Tdd.Exercise5
             _ratings.Add(rating);
         }
 
-        public int AverageRating => (int) _ratings.Average();
+        public int AverageRating => (int) Math.Round(_ratings.Average());
     }
 }

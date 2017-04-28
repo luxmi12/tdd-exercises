@@ -31,5 +31,15 @@ namespace Tdd.Exercise5.Tests
 
             _movie.AverageRating.ShouldBe(4);
         }
+
+        [Fact]
+        public void RoundAverageRating()
+        {
+            _movie.LeaveReview(5);
+            _movie.LeaveReview(5);
+            _movie.LeaveReview(4);
+
+            _movie.AverageRating.ShouldBe(5);
+        }
     }
 }
