@@ -21,5 +21,15 @@ namespace Tdd.Exercise5.Tests
             _movie.LeaveReview(rating);
             _movie.AverageRating.ShouldBe(rating);
         }
+
+        [Fact]
+        public void ProvideAverageRatingForMultipleReviews()
+        {
+            _movie.LeaveReview(5);
+            _movie.LeaveReview(4);
+            _movie.LeaveReview(3);
+
+            _movie.AverageRating.ShouldBe(4);
+        }
     }
 }

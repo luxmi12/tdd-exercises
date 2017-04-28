@@ -1,14 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Tdd.Exercise5
 {
     public class Movie
     {
-        private int _rating;
+        private IList<int> _ratings = new List<int>();
 
         public void LeaveReview(int rating)
         {
-            _rating = rating;
+            _ratings.Add(rating);
         }
 
-        public int AverageRating => _rating;
+        public int AverageRating => (int) _ratings.Average();
     }
 }
