@@ -23,13 +23,6 @@ namespace Tdd.Exercise7.Tests
         }
 
         [Test]
-        public void Play_at_least_3_rounds()
-        {
-            GameResult result = _game.Play(_player1, _player2);
-            result.RoundCount.ShouldBeGreaterThanOrEqualTo(3);
-        }
-
-        [Test]
         public void Decide_the_winner_based_on_round_results()
         {
             _player1.RevealHand().Returns(Hand.Paper);
@@ -37,6 +30,16 @@ namespace Tdd.Exercise7.Tests
 
             GameResult result = _game.Play(_player1, _player2);
             result.WinningPlayer.ShouldBe(_player2);
+        }
+
+        [Test]
+        public void Decide_the_winner_after_at_least_three_rounds()
+        {
+            _player1.RevealHand().Returns(Hand.Paper, Hand.Paper, Hand.Paper);
+            _player2.RevealHand().Returns(Hand.Scissors, Hand.Rock, Hand.Rock);
+
+            GameResult result = _game.Play(_player1, _player2);
+            result.WinningPlayer.ShouldBe(_player1);
         }
     }
 }
