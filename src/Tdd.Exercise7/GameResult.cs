@@ -2,8 +2,14 @@
 {
     public class GameResult
     {
-        public int RoundCount => 3;
+        public GameResult(int roundCount, IPlayer winningPlayer)
+        {
+            RoundCount = roundCount;
+            WinningPlayer = winningPlayer;
+        }
 
-        public IPlayer WinningPlayer { get; set; }
+        public IPlayer WinningPlayer { get; }
+
+        public int RoundCount { get; }
     }
 }

@@ -13,25 +13,22 @@
         {
             var player1Wins = 0;
             var player2Wins = 0;
+            int roundCount = 0;
 
-            while (player1Wins < 2 && player2Wins < 2)
+            while (roundCount < 3 || player1Wins == 0 && player2Wins == 0)
             {
-                var winner = _round.Play(player1, player2);
+                roundCount++;
 
+                var winner = _round.Play(player1, player2);
                 if (winner == Winner.Player1)
                     player1Wins++;
                 else if (winner == Winner.Player2)
                     player2Wins++;
             }
 
-            IPlayer winningPlayer = null;
+            IPlayer winningPlayer  = player1Wins > player2Wins ? player1 : player2;
 
-            if (player1Wins == 2)
-                winningPlayer = player1;
-            else if (player2Wins == 2)
-                winningPlayer = player2;
-
-            return new GameResult {WinningPlayer = winningPlayer};
+            return new GameResult(roundCount, winningPlayer);
         }
     }
 }
