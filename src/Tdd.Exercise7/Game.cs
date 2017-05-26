@@ -1,4 +1,7 @@
-﻿namespace Tdd.Exercise7
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Tdd.Exercise7
 {
     public class Game
     {
@@ -11,22 +14,26 @@
 
         public GameResult Play(IPlayer player1, IPlayer player2)
         {
-            var player1Wins = 0;
-            var player2Wins = 0;
+            var wins = new Dictionary<IPlayer, int>
+            {
+                {player1, 0},
+                {player2, 0},
+            };
+
             int roundCount = 0;
 
-            while (roundCount < 3 || player1Wins == 0 && player2Wins == 0)
+            while (roundCount < 3 || wins.Values.All(v => v == 0))
             {
                 roundCount++;
 
                 var winner = _round.Play(player1, player2);
                 if (winner == Winner.Player1)
-                    player1Wins++;
+                    wins[player1]++;
                 else if (winner == Winner.Player2)
-                    player2Wins++;
+                    wins[player2]++;
             }
 
-            IPlayer winningPlayer  = player1Wins > player2Wins ? player1 : player2;
+            IPlayer winningPlayer = wins.OrderByDescending(pair => pair.Value).First().Key;
 
             return new GameResult(roundCount, winningPlayer);
         }
