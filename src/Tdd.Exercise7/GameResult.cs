@@ -4,6 +4,6 @@
     {
         public int RoundCount => 3;
 
-        public Player Winner { get; set; }
+        public IPlayer WinningPlayer { get; set; }
     }
 }
