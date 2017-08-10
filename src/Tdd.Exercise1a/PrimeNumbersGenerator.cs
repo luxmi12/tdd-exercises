@@ -15,7 +15,7 @@ namespace Tdd.Exercise1a
             return CalculatePrimes(limit);
         }
 
-        private static List<int> CalculatePrimes(int limit)
+        private static IEnumerable<int> CalculatePrimes(int limit)
         {
             var primes = new List<int>();
 
