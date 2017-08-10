@@ -12,9 +12,7 @@ namespace Tdd.Exercise1a
                 return Enumerable.Empty<int>();
             }
 
-            var primes = CalculatePrimes(limit);
-
-            return primes;
+            return CalculatePrimes(limit);
         }
 
         private static List<int> CalculatePrimes(int limit)
