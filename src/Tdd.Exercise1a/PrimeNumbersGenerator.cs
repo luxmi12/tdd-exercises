@@ -23,13 +23,18 @@ namespace Tdd.Exercise1a
             {
                 var divisors = primes.TakeWhile(p => p * p <= limit);
 
-                if (divisors.All(d => number % d != 0))
+                if (divisors.All(d => IsNotFactor(number, d)))
                 {
                     primes.Add(number);
                 }
             }
 
             return primes;
+        }
+
+        private static bool IsNotFactor(int number, int d)
+        {
+            return number % d != 0;
         }
 
         private static IEnumerable<int> GetNumbersToCheck(int limit)
