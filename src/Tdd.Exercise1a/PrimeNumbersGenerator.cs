@@ -19,7 +19,7 @@ namespace Tdd.Exercise1a
         {
             var primes = new List<int>();
 
-            foreach (var number in GetNumbersToCheck(limit))
+            foreach (var number in GetNumbersToCheckLessThan(limit))
             {
                 var divisors = GetPrimeDivisors(limit, primes);
 
@@ -42,7 +42,7 @@ namespace Tdd.Exercise1a
             return number % d != 0;
         }
 
-        private static IEnumerable<int> GetNumbersToCheck(int limit)
+        private static IEnumerable<int> GetNumbersToCheckLessThan(int limit)
         {
             return Enumerable.Range(1, limit).Skip(1);
         }
