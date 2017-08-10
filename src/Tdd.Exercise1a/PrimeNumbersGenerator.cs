@@ -21,7 +21,7 @@ namespace Tdd.Exercise1a
 
             foreach (var number in GetNumbersToCheck(limit))
             {
-                var divisors = primes.TakeWhile(p => p * p <= limit);
+                var divisors = GetPrimeDivisors(limit, primes);
 
                 if (divisors.All(d => IsNotFactor(number, d)))
                 {
@@ -30,6 +30,11 @@ namespace Tdd.Exercise1a
             }
 
             return primes;
+        }
+
+        private static IEnumerable<int> GetPrimeDivisors(int limit, IEnumerable<int> primes)
+        {
+            return primes.TakeWhile(p => p * p <= limit);
         }
 
         private static bool IsNotFactor(int number, int d)
