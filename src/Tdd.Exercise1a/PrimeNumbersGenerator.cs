@@ -12,6 +12,13 @@ namespace Tdd.Exercise1a
                 return Enumerable.Empty<int>();
             }
 
+            var primes = CalculatePrimes(limit);
+
+            return primes;
+        }
+
+        private static List<int> CalculatePrimes(int limit)
+        {
             var primes = new List<int>();
 
             foreach (var number in Enumerable.Range(1, limit).Skip(1))
